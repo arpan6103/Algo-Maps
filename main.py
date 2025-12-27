@@ -61,5 +61,3 @@ print("Time Taken (s)", result_a["time"])
 
 print("source: ", src)
 print("destination", dest)
-
-
