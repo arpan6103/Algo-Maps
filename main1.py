@@ -23,24 +23,6 @@ graph=build_graph(handler.nodes, handler.ways)
 # edge_count=sum(len(v) for v in graph.values())
 # print("Edges: ", edge_count)
 
-def pick(nodes_dict, graph):
-    nodes=list(graph.keys())
-    src=random.choice(nodes)
-    lat1,lon1=nodes_dict[src]
-
-    max_dist=-1
-    dst=None
-
-    for _ in range(2000):
-        n=random.choice(nodes)
-        lat2,lon2=nodes_dict[n]
-        d=haversine(lat1,lon1,lat2,lon2)
-        if d>max_dist:
-            max_dist=d
-            dst=n
-
-    return src,dst
-
 def path_to_coordinates(path,nodes_dict):
     return [nodes_dict[node] for node in path]
 
@@ -69,7 +51,25 @@ def export_route_geojson(coords, filename="route.geojson"):
     with open(filename, "w") as f:
         json.dump(geojson, f, indent=2)
 
-src,dest=pick(handler.nodes,graph)
+print("KDTree Building...")
+points=[
+    (lat,lon,node_id) 
+    for node_id,(lat,lon) in handler.nodes.items() 
+    if node_id in graph
+]
+kdtree_root=build_tree(points)
+src_lat, src_lon = 28.6139, 77.2090   # Connaught Place
+dst_lat, dst_lon = 28.4595, 77.0266   # Gurgaon side
+
+src_node,src_dist=nearest_neighbor(kdtree_root,(src_lat, src_lon))
+dst_node,dst_dist=nearest_neighbor(kdtree_root,(dst_lat, dst_lon))
+
+src=src_node.node_id
+dest=dst_node.node_id
+
+print("Snapped source distance (m):",src_dist)
+print("Snapped destination distance (m):",dst_dist)
+
 
 result_d=dijkstra(graph,src,dest)
 result_a=astar(graph,handler.nodes,src,dest)
