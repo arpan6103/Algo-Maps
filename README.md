@@ -18,40 +18,12 @@ It implements and benchmarks Dijkstra and A* on a large metropolitan graph and r
 
 **System Architecture**
 
-(lat, lon)
-   ↓
-KD-Tree (nearest road node)
-   ↓
-Graph (OSM road network)
-   ↓
-A* / Dijkstra
-   ↓
-Parent pointers
-   ↓
-Reconstructed path
-   ↓
-GeoJSON route
+<img width="260" height="293" alt="Screenshot 2026-01-28 at 13 30 58" src="https://github.com/user-attachments/assets/1861c55d-8216-4d1a-a4e6-c660f725f99b" />
 
 
 **Project Structure**
 
-algomaps/
-    ├── algorithms/
-    │   ├── dijkstra.py        # Dijkstra shortest path
-    │   ├── astar.py           # A* search with Haversine heuristic
-    │   ├── path.py            # Path reconstruction
-    │
-    ├── graph/
-    │   ├── osm_parser.py      # OSM parsing (roads only)
-    │   ├── graph_builder.py   # Graph construction
-    │   ├── geo.py             # Haversine distance
-    │   ├── kdtree.py          # KD-Tree for nearest-node lookup
-    │
-    ├── data/
-    │   └── delhi.osm.pbf      # OpenStreetMap extract
-    │
-    ├── main.py                # End-to-end pipeline
-    └── README.md
+<img width="539" height="370" alt="Screenshot 2026-01-28 at 13 20 06" src="https://github.com/user-attachments/assets/d52bd102-4cc1-4c7f-9620-2f0746f799bd" />
 
 
 **Algorithms Implemented**
