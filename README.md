@@ -36,22 +36,22 @@ GeoJSON route
 **Project Structure**
 
 algomaps/
-├── algorithms/
-│   ├── dijkstra.py        # Dijkstra shortest path
-│   ├── astar.py           # A* search with Haversine heuristic
-│   ├── path.py            # Path reconstruction
-│
-├── graph/
-│   ├── osm_parser.py      # OSM parsing (roads only)
-│   ├── graph_builder.py   # Graph construction
-│   ├── geo.py             # Haversine distance
-│   ├── kdtree.py          # KD-Tree for nearest-node lookup
-│
-├── data/
-│   └── delhi.osm.pbf      # OpenStreetMap extract
-│
-├── main.py                # End-to-end pipeline
-└── README.md
+    ├── algorithms/
+    │   ├── dijkstra.py        # Dijkstra shortest path
+    │   ├── astar.py           # A* search with Haversine heuristic
+    │   ├── path.py            # Path reconstruction
+    │
+    ├── graph/
+    │   ├── osm_parser.py      # OSM parsing (roads only)
+    │   ├── graph_builder.py   # Graph construction
+    │   ├── geo.py             # Haversine distance
+    │   ├── kdtree.py          # KD-Tree for nearest-node lookup
+    │
+    ├── data/
+    │   └── delhi.osm.pbf      # OpenStreetMap extract
+    │
+    ├── main.py                # End-to-end pipeline
+    └── README.md
 
 
 **Algorithms Implemented**
