@@ -48,12 +48,9 @@ It implements and benchmarks Dijkstra and A* on a large metropolitan graph and r
 - Example long-distance route:
     - Route length: ~63.7 km
     - Path nodes: 1467
+ 
 
-*Algorithm*	  *Nodes Expanded*	  *Time (s)*
- Dijkstra	   1,038,352	       1.16
- A*	           356,746	           0.66
-A* reduced node expansions by ~65% and runtime by ~40% while preserving optimality.
-
+<img width="635" height="122" alt="Screenshot 2026-01-29 at 11 20 45 AM" src="https://github.com/user-attachments/assets/aa60710b-9965-4de5-80b5-0598308ab6df" />
 
 **How to Run**
 1. Install dependencies
